@@ -27,7 +27,7 @@ soup=BeautifulSoup(response.content,'html.parser')
 images_tags=soup.find_all("img") # all images url
 print(len(images_tags))
 
-# first tage is header so delete in images_tags
+# first tag is header so delete in images_tags
 del images_tags[0]
 
 # now we iterate in images tags for url
@@ -41,6 +41,7 @@ for img in images_tags:
                f.write(image_data)
 
 # mongo db
+
 client = pymongo.MongoClient("mongodb+srv://Dipak_mongo:Dipak12345@cluster0.nfh2qpm.mongodb.net/?appName=Cluster0")
 db = client['image_scrap']
 coll_img=db["image_scrap"]
